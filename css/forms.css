@@ -39,7 +39,7 @@ header.navbar{
 }
 
 .form-title{
-    color: #CE0058;
+    color: #652D86;
     font-size: 28px;
 }
 .form-label{
@@ -124,7 +124,7 @@ header.navbar{
 /* Estilo para el campo que está actualmente en foco */
 .form-control:focus.is-invalid,
 .form-select:focus.is-invalid {
-    border-color: #CE0058;
+    border-color: #652D86;
     box-shadow: 0 0 0 0.25rem rgba(206, 0, 88, 0.25);
 }
 
@@ -140,8 +140,8 @@ header.navbar{
 
 /* Estilo específico para el botón continuar */
 .btn-continue {
-    background-color: #CE0058;
-    border-color: #CE0058;
+    background-color: #652D86;
+    border-color: #652D86;
     color: white;
     font-weight: bold;
     border-radius: 50px;
@@ -150,8 +150,8 @@ header.navbar{
 }
 
 .btn-continue:enabled:hover {
-    background-color: #b00049;
-    border-color: #b00049;
+    background-color: #53256E;
+    border-color: #53256E;
 }
 
 .line-separator{
@@ -193,8 +193,8 @@ header.navbar{
         padding: 10px 30px;
         font-weight: bold;
         border-radius: 50px;
-        background-color: #CE0058;
-        border: 1px solid #CE0058;
+        background-color: #652D86;
+        border: 1px solid #652D86;
     }
     header.navbar {
         margin-bottom: 20px !important;

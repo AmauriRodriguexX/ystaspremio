@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: 'Amor';
-    src: url('../fonts/AmorSansPro.woff2') format('woff2');
+    src: url('../fonts/AmorSansPro-Bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -47,15 +47,15 @@ body {
 
 
 h1, h2, h3{
-    font-family: 'Bree', serif; /* Set Bree font for the body */
-    color: #CE0058;
+    font-family: 'Amor', serif;
+    color: #652D86;
 }
 
 h2{
     font-size: 48px;
 }
 h4{
-    font-family: 'Bree', serif; /* Set Amor font for the body */
+    font-family: 'Amor', serif;
     font-size: 2.5rem;
 }
 
@@ -95,7 +95,7 @@ p{
 }
 
 #offcanvasNavbar{
-    background-color: #CE0058;
+    background-color: #652D86;
     height: 100vh;
 }
 .offcanvas-header .btn-close{
@@ -109,12 +109,12 @@ p{
     padding: 20px 30px;
 }
 .offcanvas-body .navbar-nav .active{
-    color: #CE0058;
+    color: #652D86;
     position: relative;
 }
 .offcanvas-body .navbar-nav .active:after{
     content: "\2022";
-    color: #CE0058;
+    color: #652D86;
     float: right;
     font-weight: 800;
     font-size: 21px;
@@ -176,7 +176,7 @@ p{
     margin: 150px 0 0;
 }
 .title-head, .title-head span{
-    font-family: 'Bree', serif;
+    font-family: 'Amor', serif;
     font-size: 96px;
     line-height: 90px;
     color: #ffffff !important;
@@ -247,7 +247,7 @@ p{
     top:0;
     transform: translateX(-50%);
     font-size: 42px;
-    font-family: 'Bree', serif;
+    font-family: 'Amor', serif;
     text-decoration: underline;
     transition: 0.3s all;
     color: #ffffff;
@@ -459,11 +459,11 @@ footer .row{
     text-decoration: none;
 }
 .links{
-    color: #CE0058;
+    color: #652D86;
     font-size: 16px;
 }
 .link-sep{
-    color: #CE0058;
+    color: #652D86;
     font-size: 16px;
     margin: 0 5px;
 }
@@ -473,7 +473,7 @@ footer .row{
 
 .fases-title h1{
     font-size: 46px;
-    color: #CE0058;
+    color: #652D86;
     margin-bottom: 30px;
 }
 
@@ -489,7 +489,7 @@ footer .row{
     position: relative;
 }
 .fases-card .card-title{
-    color: #CE0058;
+    color: #652D86;
     font-weight: bolder;
 }
 .col-fases .fases-card:before{
@@ -515,7 +515,7 @@ footer .row{
     transition: 0.5s all;
 }
 .col-fases .fases-card.active::before{
-    color: #CE0058;
+    color: #652D86;
     z-index: 3;
 }
 .col-fases:not(:last-child) .fases-card.add-width::after {
@@ -526,8 +526,8 @@ footer .row{
 }
 
 .fases-card.active{
-    border: 2px solid #CE0058;
-    background-color: #CE0058;
+    border: 2px solid #652D86;
+    background-color: #652D86;
     color: #ffffff;
 }
 
@@ -552,7 +552,7 @@ footer .row{
 .fases-card.active .number{
     font-size: 1.2rem;
     font-weight: bold;
-    color: #CE0058;
+    color: #652D86;
 }
 
 .fases-card .card-title{
@@ -601,21 +601,21 @@ footer .row{
     padding: 10px 30px;
     font-weight: normal;
     border-radius: 50px;
-    background-color: #CE0058;
-    border: 1px solid #CE0058;
+    background-color: #652D86;
+    border: 1px solid #652D86;
     color: #fff;
     transition: 0.5s all;
     font-size: 16px;
 }
 .btn-continue:hover{
-    background-color: #CE0058;
-    border: 1px solid #CE0058;
+    background-color: #652D86;
+    border: 1px solid #652D86;
     color: #fff;
 }
 
 .form-check-input:checked{
-    background-color: #CE0058 !important;
-    border-color: #CE0058 !important;
+    background-color: #652D86 !important;
+    border-color: #652D86 !important;
 }
 
 .text-descubre{
@@ -626,8 +626,8 @@ footer .row{
 }
 
 .text-modal-content h1{
-    font-family: 'Bree', serif;
-    color: #CE0058;
+    font-family: 'Amor', serif;
+    color: #652D86;
     padding-bottom: 20px;
 }
 
@@ -643,7 +643,7 @@ footer .row{
 }
 .text-modal-content .form-check .form-check-input{
     float: none;
-    border: 1px solid #CE0058;
+    border: 1px solid #652D86;
 }
 .text-modal-content .bt-politica{
     margin-top: 20px;
@@ -658,15 +658,15 @@ footer .row{
     padding: 10px 30px;
     font-weight: bold;
     border-radius: 50px;
-    background-color: #CE0058;
-    border: 1px solid #CE0058;
+    background-color: #652D86;
+    border: 1px solid #652D86;
     color: #fff;
     transition: 0.5s all;
     font-size: 16px;
 }
 .btn-continue:hover, .btn-submit:hover, .bt-politica:hover{
-    background-color: #960048;
-    border: 1px solid #960048;
+    background-color: #53256E;
+    border: 1px solid #53256E;
     color: #fff;
 }
 .btn-disabled{
@@ -816,7 +816,7 @@ footer .row{
 
     .title-premio{
         font-size: 28px;
-        font-family: 'Bree', serif;
+        font-family: 'Amor', serif;
     }
     .title-head{
         font-size: 48px;
@@ -901,8 +901,8 @@ label {
 
 
 .aviso-privacidad-text {
-    color: #CE0058;
-    font-family: 'Bree', serif;
+    color: #652D86;
+    font-family: 'Amor', serif;
     font-size: 28px !important;
     font-style: normal;
     text-align: left;
@@ -933,7 +933,7 @@ label {
 }
 
 .link-privacidad {
-    color: #CE0058;
+    color: #652D86;
     font-weight: 600;
 }
 
