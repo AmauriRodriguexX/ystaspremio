@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sube tus archivos para el Premio Emprendedores</title>
+    <meta name="description"
+        content="Estás a un paso de completar tu participación en el Premio Emprendedores.">
+    <link rel="canonical" href="https://www.compartamos.com.mx/Emprendedores/">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="../css/premio.css" rel="stylesheet" >
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/uploads.css" rel="stylesheet">
+    <link href="../css/forms.css" rel="stylesheet">
+
+    <script src="../js/dataLayer.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PXVLSK6');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXVLSK6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="navbar bd-navbar">
+        <nav class="container-xxl bd-gutter">
+            <a class="navbar-brand" href="#">
+                <img src="../images/logo-color.png" alt="Logo de Compartamos Banco color." height="40" class="d-inline-block align-text-top">
+            </a>
+        </nav>
+    </header>
+    <div class="container-fluid bd-gutter flex-wrap flex-lg-nowrap back-form">
+        <div class="row ">
+            <div class="col-12">
+                <div class="container custom-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="../paso2/" class="btn back-button"><img src="../images/back-arrow.png" alt="Icono de back color negro." />
+                                Regresar</a>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-6 text-center line-separator">
+                            <h2 class="form-title">Carga de archivos</h2>
+                            <img src="../images/step3.png" alt="Paso tres del formulario de Premio Emprendedores 2025." width="320">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-6 text-desc">
+                            <span>Por favor, sube los siguientes archivos en el formato solicitado.</span><br>
+                            <span class="sub-text">
+                                <img src="../images/icon-info.png" alt="Icono de info en color gris." width="16" height="16"
+                                    style="vertical-align: middle;">
+                                Una vez completado, presiona “enviar".
+                            </span>
+                        </div>
+                    </div>
+                    <form id="uploadForm">
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="row">
+                                    <!-- Columna para carga de video -->
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">
+                                            Selecciona tu video
+                                            <img src="../images/icon-help.png" alt="Icono de ayuda color gris." width="20" height="20" id="alwaysPopover" tabindex="0"
+                                                data-bs-toggle="popover" data-bs-trigger="hover focus click" data-bs-placement="top"
+                                                data-bs-custom-class="custom-popover" data-bs-title="Características del video" data-bs-html="true"
+                                                data-bs-content="<ul><li>Máximo 90 segundos</li><li>El cliente debe responder a la pregunta:¿Cómo te ha ayudado Compartamos tu negocio?</li></ul>">
+                                        </label>
+                                    
+                                        <div class="upload-area" id="videoPlaceholder">
+                                            <img src="../images/icon-upload-video.png" alt="Icono de carga de video color gris." class="upload-logo mb-2" width="24" />
+                                            <span class="upload-text">Subir video</span>
+                                            <input type="file" class="file-input" id="videoInput" accept="video/mp4,video/mov,video/quicktime">
+                                            <div class="file-info">Archivos MP4 o MOV de hasta 25MB</div>
+                                        </div>
+                                    
+                                        <!-- Vista previa del video -->
+                                        <div class="preview-container">
+                                            <video controls class="preview-video" id="videoPreview"></video>
+                                            <button type="button" class="delete-btn" id="btnEliminarVideo" title="Eliminar video">
+                                                <span class="material-symbols-outlined" style="font-size: 24px;">delete</span>
+                                            </button>
+                                        </div>
+                                    
+                                        <div class="error-message" id="errorVideo"></div>
+                                    </div>
+
+                                    <!-- Columna para carga de foto -->
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">
+                                            Selecciona tu fotografía
+                                            <img src="../images/icon-help.png" alt="Icono de ayuda color gris." width="20" height="20"
+                                                tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
+                                                data-bs-placement="top" data-bs-custom-class="custom-popover"
+                                                data-bs-title="Características de la fotografía" data-bs-html="true"
+                                                data-bs-content="<ul><li>El cliente dentro de su negocio</li><li>Buena iluminación</li><li>Buen encuadre</li></ul>">
+                                        </label>
+
+                                        <div class="upload-area" id="fotoPlaceholder">
+                                            <img src="../images/icon-upload-image.png" alt="Icono de carga de imagen color gris." class="upload-logo mb-2"
+                                                width="24" />
+                                            <span class="upload-text">Subir fotografía</span>
+                                            <input type="file" class="file-input" id="fotoInput"
+                                                accept="image/jpeg,image/jpg,image/png">
+                                            <div class="file-info">Archivos JPG, JPEG o PNG de hasta 5MB</div>
+                                        </div>
+                                        <!-- Vista previa de la foto -->
+                                        <div class="foto-preview">
+                                            <div class="preview-container">
+                                                <img src="" class="preview-image" id="fotoPreview">
+                                                <button type="button" class="delete-btn" id="btnEliminarFoto" title="Eliminar foto">
+                                                    <span class="material-symbols-outlined" style="font-size: 24px;">delete</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="error-message" id="errorFoto"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Checkbox de aceptación -->
+                                <div class="custom-checkbox">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkboxAcepto">
+                                        <label class="form-check-label" for="checkboxAcepto">
+                                            Acepto el uso de mi imagen en materiales de comunicación.
+                                        </label>
+                                    </div>
+                                    <div class="error-message" id="errorCheckbox"></div>
+                                </div>
+
+                                <!-- Botón de envío -->
+                                <div class="text-center mt-4  d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-disabled d-flex justify-content-center align-items-center" id="btnEnviar" disabled>
+                                        Enviar
+                                        <span class="material-symbols-outlined" style="font-size: 24px;">arrow_forward</span>
+                                    </button>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bd-footer">
+        <div class="container custom-container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 content-logo-pie">
+                    <div class="logo-pie">
+                        <a href="https://www.compartamos.com.mx/compartamos" target="_blank">
+                            <img src="../images/logo-color.png" alt="Logo de Compartamos Banco color." width="150">
+                        </a>
+                    </div>
+                    <div class="logo-data">
+                        <img src="../images/data-empresa.png" alt="Logo de Gentera." width="220">
+                        <span>© 2025 Gentera S.A.B</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 content-social-page">
+                    <a class="social-bt" href="https://www.facebook.com/CompartamosBanco" target="_blank"><img src="../images/social/fb.png" alt="Logotipo de red social Facebook color rosa."  width="24"></a>
+                    <a class="social-bt" href="https://www.instagram.com/compartamosbancomx/" target="_blank"><img src="../images/social/ig.png" alt="Logotipo de red social Instagram color rosa." width="24"></a>
+                    <a class="social-bt" href="https://www.youtube.com/user/compartamosbanco" target="_blank"><img src="../images/social/yt.png" alt="Logotipo de red social Youtube color rosa." width="24"></a>
+                    <a class="social-bt" href="https://www.tiktok.com/@compartamosbancomx" target="_blank"><img src="../images/social/tk.png" alt="Logotipo de red social Tik Tok color rosa." width="24"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-descubre">DESCUBRE</div>
+                    <div>
+                        <a class="links" href="https://www.compartamos.com.mx/compartamos/credito" target="_blank">Créditos</a>
+                        <span class="link-sep">&#8226;</span>
+                        <a class="links" href="https://www.compartamos.com.mx/compartamos/ahorro/mis-ahorros-compartamos" target="_blank">Tarjetas</a>
+                        <span class="link-sep">&#8226;</span>
+                        <a class="links" href="https://www.compartamos.com.mx/compartamos/ahorro/inversiones-compartamos" target="_blank">Inversiones</a>
+                        <span class="link-sep">&#8226;</span>
+                        <a class="links" href="https://www.compartamos.com.mx/compartamos/seguro" target="_blank">Seguros</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-banco">Banco Compartamos, SA, Institución de Banca Múltiple, Av. Insurgentes Sur 1458, Actipan, Benito Juárez, 03230 Ciudad de México, CDMX</div>
+                    <div>
+                        <a class="links" href="https://www.compartamos.com.mx/compartamos/regulacion/privacidad" target="_blank">Aviso de Privacidad</a>
+                        <span class="link-sep">&#8226;</span>
+                        <a class="links" href="https://www.compartamos.com.mx/compartamos/regulacion/terminos-y-condiciones" target="_blank">Términos y Condiciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="myTerminos" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="../images/icon-overlay-close-magenta.png" type="button" data-bs-dismiss="modal"
+                        aria-label="Close" />
+                </div>
+                <div class="modal-body">
+                    <div class="text-modal-content">
+                        Banco Compartamos, S.A. Institución de Banca Múltiple y Compartamos Servicios, S.A. de C.V.,
+                        empresas pertenecientes a GENTERA, con domicilio en Insurgentes Sur número 1458 piso 5, Colonia
+                        Actipan, Alcaldía Benito Juárez, C.P. 03230, México, Ciudad de México, utilizará sus datos
+                        personales y uso de imagen requeridos en este formulario para las siguientes finalidades: i)
+                        Identificarlo y corroborar su identidad; ii) Invitarlo a participar o participar en nuestros
+                        eventos, campañas, concursos o sorteos, y en caso de resultar ganador, contactarlo para la
+                        entrega del premio; y iii) Fines de uso de imagen en medios publicitarios videos/fotografía y
+                        publicaciones en cualquier otro medio de comunicación de GENTERA. Para más información acerca
+                        del tratamiento y de los derechos que puede hacer valer, usted puede acceder al Aviso de
+                        Privacidad Integral para Clientes a través del sitio web www.compartamos.com.mx sección Avisos
+                        de Privacidad.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/premio.bundle.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/form-step-upload.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+
+<script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
+
+</html>

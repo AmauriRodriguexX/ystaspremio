@@ -1,0 +1,206 @@
+.back-form{
+    width: 100%;
+    background: url("../images/forms-background.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    padding-bottom: 80px;
+}
+
+header.navbar{
+    margin-bottom: 40px !important;
+}
+.navbar{
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+.navbar-brand{
+    margin: 0 auto;
+}
+
+.back-button{
+    color: #252A2D;
+}
+
+.back-form .text-desc{
+    padding: 30px 0 10px;
+    font-size: 16px;
+    color: #252A2D;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -0.2em !important;
+}
+
+.back-form .sub-text{
+    font-size: 14px;
+    color: #5E6A71;
+}
+
+.form-title{
+    color: #CE0058;
+    font-size: 28px;
+}
+.form-label{
+    color: #5E6A71;
+    font-size: 16px;
+}
+
+
+
+/* Estilos adicionales para campos deshabilitados y validación secuencial */
+
+/* Estilo para campos deshabilitados */
+.form-control:disabled,
+.form-select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+    opacity: 0.7;
+    border-color: #dee2e6;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+/* Estilo para campo activo (el que está siendo validado) */
+.form-control:enabled,
+.form-select:enabled {
+    background-color: #ffffff;
+    border-color: #252A2D;
+    font-size: 18px;
+    line-height: 30px;
+    /*box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);*/
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+
+/* Estilo para campos válidos */
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #28a745;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Estilo para el botón deshabilitado */
+.btn-disabled {
+    background-color: #D8DADA  !important;
+    border-color: #D8DADA  !important;
+    color: #949C9F !important;
+    cursor: not-allowed;
+    opacity: 0.65;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+/* Indicador visual de progreso */
+.campo-validado::after {
+    content: '✓';
+    color: #28a745;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Estado pendiente de validación */
+.campo-pendiente {
+    position: relative;
+}
+
+
+
+/* Contenedor para los campos con posición relativa */
+.input-container {
+    position: relative;
+}
+.form-select:focus{
+    border-color: #00ce03;
+    box-shadow: 0 0 0 0.25rem rgb(24, 84, 94);
+}
+/* Estilo para el campo que está actualmente en foco */
+.form-control:focus.is-invalid,
+.form-select:focus.is-invalid {
+    border-color: #CE0058;
+    box-shadow: 0 0 0 0.25rem rgba(206, 0, 88, 0.25);
+}
+
+/* Animación para campo recién habilitado */
+@keyframes fadeIn {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+.campo-habilitado {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilo específico para el botón continuar */
+.btn-continue {
+    background-color: #CE0058;
+    border-color: #CE0058;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-continue:enabled:hover {
+    background-color: #b00049;
+    border-color: #b00049;
+}
+
+.line-separator{
+    border-bottom: 1px solid #D8DADA;
+    padding-bottom: 20px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .navbar > .container-xxl{
+        justify-content: center;
+    }
+    .col-sm-12.col-md-6.text-center{
+        overflow: hidden;
+    }
+    .col-sm-12.col-md-6.text-center img{
+        position: relative;
+        width: 100%;
+        left: unset;
+    }
+    .form-title{
+        text-align: left;
+        margin-top: 20px;
+    }
+    .logo-data img{
+        width: 75%;
+        margin-top: 10px;
+    }
+    .input-container{
+        margin-top: 20px;
+    }
+    .logo-pie,.logo-data{
+        text-align: left;
+    }
+    .btn-continue{
+        width: 100%;
+        padding: 10px 30px;
+        font-weight: bold;
+        border-radius: 50px;
+        background-color: #CE0058;
+        border: 1px solid #CE0058;
+    }
+    header.navbar {
+        margin-bottom: 20px !important;
+    }
+    .form-check {
+        justify-content: flex-start;
+        display: flex;
+    }
+}

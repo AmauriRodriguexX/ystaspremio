@@ -1,0 +1,244 @@
+/* Estilos específicos para la carga de archivos */
+.navbar > .container-xxl{
+    justify-content: center;
+}
+.upload-area {
+    background-color: #D8DADA;
+    border-radius: 10px;
+    padding: 30px 20px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.upload-area:hover {
+    background-color: #E0E0E0;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.upload-text {
+    color: #555;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.file-info {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 10px;
+    text-align: center;
+}
+.form-label{
+    font-size: 16px;
+    color: #5E6A71;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.preview-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+.progress-steps {
+    margin-bottom: 30px;
+}
+
+.step {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    color: #666;
+}
+
+.step.active {
+    color: #CE0058;
+    font-weight: bold;
+}
+
+.step-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #CE0058;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.step-line {
+    position: absolute;
+    height: 2px;
+    background-color: #CE0058;
+    top: 12px;
+    width: 100%;
+    left: 50%;
+    z-index: -1;
+}
+
+.text-desc {
+    margin-bottom: 30px;
+}
+
+.text-desc span {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.text-desc .sub-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.custom-checkbox {
+    margin-top: 20px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #CE0058;
+}
+.form-check-input:checked {
+    background-color: #CE0058;
+    border-color: #CE0058;
+}
+
+.btn-primary {
+    background-color: #CE0058;
+    border-color: #CE0058;
+    padding: 10px 30px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.btn-primary:hover {
+    background-color: #a7046a;
+    border-color: #a7046a;
+}
+
+.btn-disabled {
+    background-color: #D8DADA;
+    border-color: #D8DADA ;
+    padding: 10px 30px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: #949C9F;
+}
+
+#btnEnviar{
+    width: 320px;
+}
+
+.back-button {
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    color: #666;
+    text-decoration: none;
+}
+
+.back-button img {
+    margin-right: 5px;
+}
+.foto-preview{
+    background-color: #D8DADA;
+    border-radius: 10px;
+}
+
+.preview-image {
+    width: auto;
+    height: 200px;
+    display: none;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.preview-video {
+    width: 100%;
+    height: auto;
+    display: none;
+    border-radius: 5px;
+}
+.bi-question-circle{
+    cursor: pointer;
+}
+.custom-popover .popover-header{
+    color: #CE0058;
+    background-color: transparent !important;
+    border-bottom: unset !important;
+    margin-top: 10px;
+    padding-bottom: 0;
+}
+.custom-popover .popover-body{
+    padding: 0 20px;
+}
+.custom-popover .popover-body ul{
+    padding:10px !important;
+}
+
+.delete-btn {
+    width: 40px;         /* o el tamaño que quieras */
+    height: 40px;
+    color: #ffffff;
+    background-color: #CE0058;
+    border-radius: 50%;  /* esto lo hace redondo */
+    border: 1px solid #CE0058;
+    display: none;
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    top: 0;
+    display: flex !important;       /* centra el contenido */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .upload-area {
+        min-height: 150px;
+    }
+}

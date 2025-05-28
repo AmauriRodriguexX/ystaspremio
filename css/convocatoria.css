@@ -1,0 +1,438 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+.back-convo{
+    background: url(../images/convocatoria-back.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.prev-header{
+    margin-top: 30px;
+    height: 100vh;
+}
+.stick-bottom{
+    position: fixed;
+    top: calc(100% - 80px);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.intro-back{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-content{
+    height: auto;
+    width: 50%;
+    margin:0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo-convo{
+    width: 450px;
+}
+.sub-convo{
+    width: 300px;
+    opacity: 0;
+    margin: 30px 0 0 30px;
+}
+
+.estatua-convo.zoom-in {
+    transform: scale(1) translateY(-56%);
+    opacity: 1;
+}
+.text-title{
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+}
+.image-title{
+    position: relative;
+}
+.text-convo{
+    top: calc(100% - 110px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Amor', serif;
+}
+
+.estatua-convo{
+    height: 76vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: scale(0) translateY(-100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.momento{
+    display: flex;
+    color:#ffffff;
+ }
+
+.momento-title, .momento-text,
+.requisitos-title, .requisitos-text,
+.facil-title, .facil-text{
+    position: relative;
+    z-index: 3;
+    color:#ffffff;
+}
+.requisitos{
+    margin-top: 60px;
+}
+.rotators{
+    margin: 80px 0;
+}
+.rotators .col-sm-12 .rotate-slick{
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+}
+.rotate{
+    background-color: #FFFFFF;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    padding: 15px;
+}
+.flip-card-front .rotate-num{
+    color: #CE0058;
+    text-align: left;
+    font-weight: bolder;
+}
+.flip-card-front .rotate-image{
+    padding: 15px 0;
+}
+.flip-card-front .rotate-title{
+    color: #2a2a2a;
+}
+
+.flip-card-front .rotate-icon{
+    text-align: right;
+    position: relative;
+    margin-bottom: -10px;
+}
+.flip-card-front .rotate-icon img {
+    margin-bottom: -30px;
+}
+
+.flip-card-back .rotate-icon{
+    text-align: right;
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 15px;
+    font-size: 14px;
+}
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 14px;
+}
+.flip-card-back p{
+    padding: 0;
+    margin: 0;
+}
+
+.flip-card-front {
+    background: #fff;
+    color: #333;
+}
+
+
+.flip-card-back {
+    background: #c5005a;
+    color: #fff;
+    transform: rotateY(180deg);
+}
+.flip-card-back.yellow{
+    background: #FFA300;
+}
+.flip-card-back.brown{
+    background: #847770;
+}
+.facil-content{
+    text-align: center;
+    padding-top: 120px;
+}
+
+.video{
+    margin: 80px auto 150px !important;
+    overflow: hidden;
+ }
+@keyframes bounceInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(30px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.over-convo{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 760px) {
+
+    .back-convo{
+        height: 100svh;
+    }
+    .sticky-top{
+        position: fixed;
+        width: 100%;
+    }
+    .prev-header{
+        height: 100svh;
+    }
+    .stick-bottom{
+        top: calc(100vh - 80px);
+        width: 100vw;
+    }
+    .intro-back{
+        justify-content: flex-end;
+        padding-bottom: 60px;
+        height: 100svh;
+    }
+
+    .title-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 180px;
+    }
+
+    .text-title{
+        flex: 0 0 60%; /* Don't grow, don't shrink, take up 50% width */
+    }
+    .image-title{
+        flex: 0 0 40%; /* Don't grow, don't shrink, take up 50% width */
+    }
+
+    .titulo-convo{
+        margin: 0 auto;
+        width: 80%;
+    }
+    .sub-convo{
+        width: 150px;
+        margin: 7px 0 20px 35px;
+    }
+    .estatua-convo{
+        left: -72%;
+        height: 58vh;
+    }
+    .estatua-convo.zoom-in {
+        transform: scale(1) translateY(-60%);
+        opacity: 1;
+    }
+    .text-convo{
+        position: relative;
+        transform: translateX(0);
+        left: 0;
+        top: -10px;
+        opacity: 1;
+        font-size: 8px;
+        padding: 0 20px;
+        text-align: center;
+        font-family: 'Amor', serif;
+    }
+    .rotators .col-sm-12{
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .requisitos-text br{
+        display: none;
+    }
+    .requisitos{
+        margin-top: 80px;
+    }
+    #myPrivacidad{
+        height: 100vh;
+    }
+    #myPrivacidad .text-modal-content{
+        width: 90%;
+    }
+    .form-check .form-check-input {
+        border-color: #c5005a;
+    }
+
+    .momento,.requisitos{
+        justify-content: flex-start;
+        padding: 20px;
+    }
+    .momento-title,.requisitos-title, .facil-title{
+        font-size: 32px;
+        line-height: 42px;
+        margin-bottom: 20px;
+    }
+    .momento-text,.requisitos-text, .facil-text{
+        font-size: 17px;
+        line-height: 30px;
+    }
+    .facil-text br{
+        display: none;
+    }
+    .rotators{
+        margin: 0;
+    }
+    .inner{
+        width: 100%;
+        height: auto;
+    }
+
+    .flip-card{
+        transform: scale(0.9);
+    }
+    .flip-card-inner img{
+        display: inline;
+    }
+    .facil-content{
+        padding: 100px 8px 0;
+        text-align: left;
+    }
+    .video{
+        height: 80vh;
+        padding: 0 20px !important;
+    }
+    .video video{
+        width: 100% !important;
+        min-width: 100%;
+        min-height: 80vh;
+    }
+    .over-convo .button-play{
+        top:unset;
+    }
+    .modal-header{
+        background-color: transparent;
+    }
+}
+@media (max-width: 400px) {
+    .title-content {
+        margin-bottom: 180px;
+    }
+
+    .text-convo {
+        top: 30px;
+    }
+
+    .estatua-convo {
+        left: -50%;
+        height: 58vh;
+    }
+
+    .text-modal-content h1 {
+        margin-top: 57px;
+    }
+}
+@media (max-width: 376px) {
+    .title-content {
+        margin-bottom: 85px !important;
+    }
+
+    .text-convo {
+        top: 30px;
+    }
+
+    .estatua-convo {
+        left: -42%;
+        height: 58vh;
+    }
+
+    .text-modal-content h1 {
+        margin-top: 57px;
+    }
+}
+@media (max-width: 361px) {
+    .title-content {
+        margin-bottom: 140px !important;
+    }
+}
+
+
+@media (max-width: 760px) {
+  .rotate-slick .inner {
+    width: auto !important;
+    max-width: 200px;
+    overflow: visible;
+  }
+}
+
