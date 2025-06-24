@@ -53,7 +53,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-md-6 text-desc">
-                            <span>Por favor, sube los siguientes archivos en el formato solicitado.</span><br>
+                            <span>Por favor, sube los siguientes archivos en el formato solicitado.</span><br><br>
                             <span class="sub-text">
                                 <img src="../images/icon-info.png" alt="Icono de info en color gris." width="16" height="16"
                                     style="vertical-align: middle;">
@@ -61,6 +61,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </span>
                         </div>
                     </div>
+                    <div id="msError" style="color: red; text-align: center;">Error al ingresar la solicitud, favor de intentar mas
+                    tarde</div>
                     <form id="uploadForm">
                         <div class="row justify-content-center mt-3">
                             <div class="col-sm-12 col-md-6">
@@ -93,7 +95,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="error-message" id="errorVideo"></div>
                                     </div>
 
-                                    <!-- Columna para carga de foto -->
+                                   <!-- Columna para carga de foto -->
                                     <div class="col-md-6 mb-4">
                                         <label class="form-label">
                                             Selecciona tu fotografía
@@ -142,7 +144,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         Enviar
                                         <span class="material-symbols-outlined" style="font-size: 24px;">arrow_forward</span>
                                     </button>
-
+                                    <div id='recaptcha' class="g-recaptcha" data-sitekey="6Lf-KGgUAAAAAB8NWhUyb5Ne3HcOCP3UZmd8-LDb"
+                                        data-callback="registrarCandidato" data-size="invisible"></div>
                                 </div>
 
 
@@ -199,17 +202,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="modal-body">
                     <div class="text-modal-content">
-                        Banco Compartamos, S.A. Institución de Banca Múltiple y Compartamos Servicios, S.A. de C.V.,
-                        empresas pertenecientes a GENTERA, con domicilio en Insurgentes Sur número 1458 piso 5, Colonia
-                        Actipan, Alcaldía Benito Juárez, C.P. 03230, México, Ciudad de México, utilizará sus datos
-                        personales y uso de imagen requeridos en este formulario para las siguientes finalidades: i)
-                        Identificarlo y corroborar su identidad; ii) Invitarlo a participar o participar en nuestros
-                        eventos, campañas, concursos o sorteos, y en caso de resultar ganador, contactarlo para la
-                        entrega del premio; y iii) Fines de uso de imagen en medios publicitarios videos/fotografía y
-                        publicaciones en cualquier otro medio de comunicación de GENTERA. Para más información acerca
-                        del tratamiento y de los derechos que puede hacer valer, usted puede acceder al Aviso de
-                        Privacidad Integral para Clientes a través del sitio web www.compartamos.com.mx sección Avisos
-                        de Privacidad.
+                        Red Yastás S.A. de C.V., empresa perteneciente a GENTERA S.A.B. de C.V, con domicilio
+                            en Insurgentes Sur número 1458 piso 5, Colonia Actipan, Alcaldía Benito Juárez, C.P.
+                            03230, México, Ciudad de México, es el responsable del tratamiento y protección de
+                            los datos personales y datos personales sensibles de usted y/o de sus asegurados y/o
+                            familiares asegurados y/o beneficiarios, categorizados como: i) Identificación y
+                            Contacto y ii) Patrimonio, recabados a través de este medio y los utilizará para las
+                            siguientes finalidades: i) Identificarlo y corroborar su identidad; ii) Integrar y
+                            actualizar
+                            su expediente y iii) Prestar, administrar, operar y dar seguimiento a los servicios y
+                            productos que solicitó o contrató con nosotros. Para limitar el uso o divulgación de sus
+                            datos personales puede inscribirse en nuestro listado de exclusión denominado
+                            "Exclusión de Promoción y Publicidad”, para más información acerca del tratamiento y/o
+                            de los derechos que puede hacer valer, usted puede acceder al Aviso de Privacidad
+                            Integral Prospectos, Comercios Afiliados, Comisionistas y Operadores a través del sitio
+                            web <a href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/index.html"
+                                class="link-privacidad" target="_blank" rel="noreferrer noopener"> www.yastas.com </a>
+                            en la sección Avisos Privacidad.
                     </div>
                 </div>
             </div>
@@ -221,6 +230,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="../js/popper.min.js"></script>
 <script src="../js/form-step-upload.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
+<script type="text/javascript" src="../js/register.js?v=0.0.0.3"></script>
+<script src="../js/jquery.blockUI.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js?hl=es-419' async defer></script>
 
 
 <script>

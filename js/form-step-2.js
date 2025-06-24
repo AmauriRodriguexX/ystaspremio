@@ -75,6 +75,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Ingrese el nombre con al menos 4 letras (solo letras)');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('promNombre', elemento.value);
             }
             break;
 
@@ -86,6 +87,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Ingrese apellidos con al menos 4 letras (solo letras)');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('promApellidos', elemento.value);
             }
             break;
 
@@ -97,6 +99,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'El teléfono debe contener exactamente 10 dígitos');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('promNumTel', elemento.value);
             }
             break;
 
@@ -107,6 +110,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'La justificación debe tener al menos 10 caracteres');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('justificacion', elemento.value);
             }
             break;
     }

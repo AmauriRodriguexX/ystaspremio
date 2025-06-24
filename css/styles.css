@@ -1,8 +1,26 @@
 @font-face {
     font-family: 'Inter';
-    src: url('../fonts/Inter-Regular.woff2') format('woff2');
+    src: url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Italic.ttf') format('truetype');
+    font-style: italic;
+}
 @font-face {
     font-family: 'Bree';
     src: url('../fonts/BreeRegular.woff2') format('woff2');
@@ -19,7 +37,6 @@
   font-weight: 100 700;
   src: url('../fonts/MaterialSymbolsOutlined-VariableFont_FILL\,GRAD\,opsz\,wght.ttf') format('woff2');
 }
-
 
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
@@ -68,8 +85,8 @@ p{
 }
 
 .navbar{
-    background: rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.44);
+    backdrop-filter: blur(16px);
 }
 .navbar-toggler,
 .navbar-toggler:focus,
@@ -82,7 +99,7 @@ p{
     margin-right: calc(-50vw + 50%);
     max-width: 100vw;
     width: 100vw;
-    height: 80vh;
+    height: 72vh;
     position: relative;
     display: block;
     padding: 0;
@@ -145,7 +162,7 @@ p{
     height: 100%;
     top:0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.64);
 }
 
 
@@ -175,17 +192,17 @@ p{
     width: 100%;
     margin: 150px 0 0;
 }
-.title-head, .title-head span{
+.title-head{
     font-family: 'Amor', serif;
     font-size: 96px;
     line-height: 90px;
-    color: #ffffff !important;
+    color: #652D86 !important;
+    margin-bottom: 2rem;
 }
 .title-desc{
     font-family: 'Inter', serif !important;
     font-size: 36px;
-    margin-top: 30px;
-    color: #ffffff;
+    color: #252A2D;
 }
 
 .add-server{
@@ -205,7 +222,7 @@ p{
     z-index: 10;
 }
 .center-play{
-    width: 140px;
+    width: 47.75rem;
     height: 63px;
     position: relative;
     cursor: pointer;
@@ -230,7 +247,15 @@ p{
     z-index: 9;
 }
 
-
+.section-title{
+    color: #652D86 !important;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+.section-text{
+    font-size: 1.5rem;
+}
 .button-play-2 {
     opacity: 1 !important;
 }
@@ -257,23 +282,22 @@ p{
     overflow: hidden;
 }
 .winners .card{
-    background-color: #ffffff06;
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
     color: #ffffff;
     border-radius: 10px;
+    border: 0;
 }
 .winners .card img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 .winners .card .card-text{
-    font-size: 14px;
     font-style: italic;
     padding: 5px 5px;
 }
 .winners .card .card-name{
-    font-size: 12px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .video{
@@ -404,8 +428,8 @@ p{
 
 
 .burdeos-content{
-    background-color: #ffffffbe;
-    backdrop-filter: blur(10px);
+    background-color:rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
     padding-bottom: 60px;
     position: relative;
     z-index: 1;
@@ -468,7 +492,7 @@ footer .row{
     margin: 0 5px;
 }
 .fases-title{
-    padding: 30px 0 90px
+    padding: 80px 0;
 }
 
 .fases-title h1{
@@ -586,7 +610,6 @@ footer .row{
     top: calc(100% - 80px);
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.16);
-
     width: 100%;
     height: 80px;
     display: flex;
@@ -640,6 +663,15 @@ footer .row{
     .text-modal-content .form-check {
         text-align: left;
     }
+    .section-title{
+        font-size: 2.75rem;
+    }
+    .section-text{
+        font-size: 1.25rem;
+    }
+    .fases-title{
+        padding: 40px 0;
+    }
 }
 .text-modal-content .form-check .form-check-input{
     float: none;
@@ -655,7 +687,7 @@ footer .row{
 
 .btn-continue,.btn-submit,.bt-politica{
     width: 320px;
-    padding: 10px 30px;
+    padding: 14px 30px;
     font-weight: bold;
     border-radius: 50px;
     background-color: #652D86;
@@ -686,9 +718,7 @@ footer .row{
 }
 
 
-.inspira-title{
-    color: #ffffff !important;
-}
+
 @media (max-width: 760px) {
     h2{
         font-size: 38px;
@@ -721,7 +751,7 @@ footer .row{
         margin-left: 40px;
     }
     .prev-header{
-        height: 96vh;
+        height: 80vh;
     }
     .premio {
         height: 80vh;
@@ -947,3 +977,79 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+
+/* -------------------------------------------------------------------
+   Videos: mostrar versión 16:9 en desktop y 4:5 en mobile
+   ------------------------------------------------------------------- */
+/* Por defecto */
+.video-desktop {
+    display: block;
+  }
+  
+  .video-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    background-color: transparent;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  /* Mobile view */
+  @media screen and (max-width: 768px) {
+    .video-desktop {
+      display: none !important;
+    }
+  
+    .video-mobile {
+      display: block !important;
+      width: 100vw;
+      height: auto !important;
+      max-width: 100vw;
+      min-height: 31vh !important;
+      object-fit: contain !important;
+      background-color: transparent !important;
+    }
+  }
+  
+  /* Modal videos */
+  #modal-video-desktop,
+  #modal-video-mobile {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #000;
+    border: none;
+  }
+  
+  /* Wrapper para centrar overlay respecto al video */
+  .video-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: inline-block !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  
+  /* Centrado absoluto del botón de play */
+  .overlay-play {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+    z-index: 2;
+  }
+  
+  .overlay-play .center-play {
+    pointer-events: auto !important; /* solo el botón recibe clic */
+  }
+  

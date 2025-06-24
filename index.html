@@ -38,8 +38,8 @@
         <header class="navbar bd-navbar fixed-top">
             <nav class="container custom-container bd-gutter">
                 <a class="navbar-brand" href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/index.html"
-                    target="_blank">
-                    <img src="images/logo-color.png" alt="Logo de Yastás color morado" height="40"
+                    target="_blank" rel="noopener noreferrer">
+                    <img src="images/logo-color.png" alt="Logo de Yastás color morado" width="110" height="44"
                         class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -81,10 +81,10 @@
                 </div>
                 <div class="premio">
                     <div class="premio-content">
-                        <span class="title-head white-text"><span>Premio</span> Emprendedores</span>
-                        <h1 class="title-desc">
+                        <h1 class="title-head white-text"><span>Premio</span> Emprendedores</h1>
+                        <p class="title-desc">
                             ¡Celebramos las Historias de Éxito de nuestros mejores Comisionistas!
-                        </h1>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -93,29 +93,48 @@
         <div class="row ">
             <div class="col-12">
                 <div class="container custom-container video">
-                    <video class="background-video" width="100%" height="auto" muted loop autoplay
+                    <div class="video-wrapper">
+                  
+                      <!-- VIDEO DESKTOP (16:9) -->
+                      <video class="background-video video-desktop" width="100%" height="auto" muted loop autoplay
                         poster="images/premio.jpg">
-                        <source src="images/video-historia.mp4" type="video/mp4">
+                        <source src="https://www.multimedia.gentera.com.mx/compartamos/PEC_2025/Yastas/video-historia.mp4"
+                          type="video/mp4">
                         Your browser does not support HTML5 video.
-                    </video>
-                    <div class="overlay-play">
+                      </video>
+                  
+                      <!-- VIDEO MOBILE (4:5) -->
+                      <video class="background-video video-mobile" muted loop autoplay playsinline controls
+                        poster="images/premio.jpg">
+                        <source src="https://www.multimedia.gentera.com.mx/compartamos/PEC_2025/Yastas/video-historia-4-5.mp4"
+                          type="video/mp4">
+                        Your browser does not support HTML5 video.
+                      </video>
+                  
+                      <!-- Overlay con botón de play y texto -->
+                      <div class="overlay-play">
                         <div class="center-play">
-                            <a href="#" class="button-play" data-bs-toggle="modal" data-bs-target="#myVideo"
-                                data-label="Historia" data-action="01. Inicio" data-url="images/video-historia.mp4"><img
-                                    src="images/icon-play.png" width="64" alt="Icono de play en color blanco."></a>
-                            <div class="text-play  d-none d-md-inline">Historia</div>
+                          <a href="#" class="button-play" data-bs-toggle="modal" data-bs-target="#myVideo"
+                            data-label="Historia" data-action="01. Inicio"
+                            data-url="https://www.multimedia.gentera.com.mx/compartamos/PEC_2025/Yastas/video-historia.mp4">
+                            <img src="images/icon-play.png" height="64" width="64" alt="Icono de play en color blanco.">
+                          </a>
+                          <div class="text-play d-none d-md-inline">Conoce la experiencia</div>
                         </div>
+                      </div>
+                  
                     </div>
-                </div>
+                  </div>
+                  
             </div>
         </div>
         <div class="row row-mobile">
             <div class="col-12">
                 <div class="container custom-container inspiran">
                     <div class="row inspiran-text">
-                        <h2 class="inspira-title">Comisionistas que inspiran</h2>
-                        <span class="inspira-text white-text">Por su espíritu emprendedor y cumplen lo que se proponen,
-                            logrando ser un referente de éxito.</span>
+                        <h2 class="section-title">Comisionistas que inspiran</h2>
+                        <span class="section-text">Por su espíritu emprendedor y cumplen lo que se proponen, logrando
+                            ser un referente de éxito.</span>
                     </div>
                     <div class="row winners">
                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -123,9 +142,9 @@
                                 <img src="images/winner-1.jpg" class="card-img-top"
                                     alt="Martha Ramón la comisionista ganadora del Premio Emprendedores 2024 Yastás.">
                                 <div class="card-body">
-                                    <p class="card-text white-text-02">“Gracias a Yastás aumenté mis ingresos y mi hijo
+                                    <p class="card-text">“Gracias a Yastás aumenté mis ingresos y mi hijo
                                         logró ir a la universidad”.</p>
-                                    <p class="card-name white-text-02">Martha Ramón</p>
+                                    <p class="card-name">Martha Ramón</p>
                                 </div>
                             </div>
                         </div>
@@ -158,10 +177,10 @@
                 <div class="container custom-container fases">
                     <div class="row">
                         <div class="col-12 fases-title">
-                            <h2>Las fases</h2>
-                            <span>Conoce todas las etapas del
+                            <h2 class="section-title">Las fases</h2>
+                            <span class="section-text">Conoce todas las etapas del
                                 Premio Emprendedores y
-                                no te pierdas <br> la
+                                no te pierdas la
                                 oportunidad de ser parte de
                                 este emocionante
                                 concurso. </span>
@@ -187,8 +206,9 @@
                                 <div class="number">02</div>
                                 <div class="card-body">
                                     <h5 class="card-title">Votaciones</h5>
-                                    <p class="card-text">Próximamente podrás votar por las historias de éxito más inspiradoras.
-¡Prepárate para elegir a tu emprendedor favorito!</p>
+                                    <p class="card-text">Próximamente podrás votar por las historias de éxito más
+                                        inspiradoras.
+                                        ¡Prepárate para elegir a tu emprendedor favorito!</p>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +218,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Ganadores</h5>
                                     <p class="card-text">Conocerás a los ganadores de Premio Emprendedores.
-¡Déjate inspirar y prepárate para la próxima edición!</p>
+                                        ¡Déjate inspirar y prepárate para la próxima edición!</p>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +262,7 @@
                 <div class="col-md-6 col-sm-12 content-logo-pie">
                     <div class="logo-pie">
                         <a href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/index.html"
-                            target="_blank">
+                            target="_blank" rel="noopener noreferrer">
                             <img src="images/logo-color.png" width="150" alt="Logo de Yastás color morado">
                         </a>
                     </div>
@@ -252,8 +272,8 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 content-social-page">
-                    <a class="social-bt" href="https://www.facebook.com/yastasmx/" target="_blank"><img
-                            src="images/social/fb.png" width="24"
+                    <a class="social-bt" href="https://www.facebook.com/yastasmx/" target="_blank"
+                        rel="noopener noreferrer"><img src="images/social/fb.png" width="24"
                             alt="Logotipo de red social Facebook color morado."></a>
                 </div>
             </div>
@@ -262,11 +282,11 @@
                     <div>
                         <a class="links"
                             href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/aviso-de-privacidad.html"
-                            target="_blank">Aviso de Privacidad</a>
+                            target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a>
                         <span class="link-sep">&#8226;</span>
                         <a class="links"
                             href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/terminos-y-condiciones.html"
-                            target="_blank">Términos y Condiciones</a>
+                            target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
                     </div>
                 </div>
             </div>
@@ -278,20 +298,36 @@
 
     <div class="modal fade" id="myVideo" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <img src="images/icon-overlay-close-morado.png" alt="Icono de cerrar color morado." type="button"
-                        data-bs-dismiss="modal" aria-label="Close" width="32" />
-                </div>
-                <div class="modal-body">
-                    <video id="modal-video" autoplay muted controls poster="images/premio.jpg" height="100%">
-                        <source src="images/video-historia.mp4" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <img src="images/icon-overlay-close-morado.png" id="btnCloseModal"
+                alt="Icono de cerrar color morado." type="button" data-bs-dismiss="modal" aria-label="Close" width="32" />
             </div>
+            <div class="modal-body">
+      
+              <!-- VIDEO DESKTOP (16:9) -->
+              <video id="modal-video-desktop" class="video-desktop" autoplay muted controls playsinline
+                poster="images/premio.jpg">
+                <source
+                  src="https://www.multimedia.gentera.com.mx/compartamos/PEC_2025/Yastas/video-historia.mp4"
+                  type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+      
+              <!-- VIDEO MOBILE (4:5) -->
+              <video id="modal-video-mobile" class="video-mobile" autoplay muted controls playsinline
+                poster="images/premio.jpg">
+                <source
+                  src="https://www.multimedia.gentera.com.mx/compartamos/PEC_2025/Yastas/video-historia-4-5.mp4"
+                  type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+      
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      
     <div>
         <a href="images/gallery/galeria-1.jpg" class="glightbox"
             data-alt="Escenario del Premio Emprendedores 2024 con asistentes atentos." data-gallery="gallery1"
@@ -337,19 +373,19 @@
                         <br>
                         <br>
                         <p class="aviso-privacidad-text ">Aviso de Privacidad</p>
-                        <p>Red Yastás S.A. de C.V., empresa pertenecientes a GENTERA, con domicilio en Insurgentes Sur
-                            número 1458 piso 3, Colonia Actipan, Alcaldía Benito Juárez, C.P. 03230, México, Ciudad de
-                            México, utilizará sus datos personales y uso de imagen requeridos en este formulario para
-                            las siguientes finalidades: i) Identificarlo y corroborar su identidad; ii) Invitarlo a
-                            participar o participar en nuestros eventos, campañas, concursos o sorteos, y en caso de
-                            resultar ganador, contactarlo para la entrega del premio; y iii) Fines de uso de imagen en
-                            medios publicitarios videos/fotografía y publicaciones en cualquier otro medio de
-                            comunicación de GENTERA. Para más información acerca del tratamiento y de los derechos que
-                            puede hacer valer, usted puede acceder al Aviso de Privacidad Integral Prospectos, Comercios
-                            Afiliados, Comisionistas y Operadores a través del sitio web <a
-                                href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/index.html"
-                                class="link-privacidad" target="_blank">www.yastas.com</a> en la sección Aviso de Privacidad y derechos
-                            ARCO.
+                        <p>Red Yastás S.A. de C.V. subsidiaria de GENTERA S.A.B. de C.V, con domicilio en Insurgentes Sur número 1458 piso 5,
+    Colonia Actipan, Alcaldía Benito Juárez, C.P. 03230, México, Ciudad de México, es el responsable del tratamiento y
+    protección de sus datos personales recabados por este medio, categorizados como: i) Identificación y Contacto y ii)
+    Patrimonio y los utilizará para las siguientes finalidades: i) Identificarlo y corroborar su identidad; ii) Integrar
+    y actualizar su expediente; iii) Prestar, administrar, operar y dar seguimiento a los servicios y productos que
+    solicitó o contrató con nosotros; iv) Invitarlo a participar en nuestros eventos, campañas, concursos o sorteos y en
+    caso de resultar ganador, contactarlo para la entrega del premio y v) Fines de uso de imagen en medios publicitarios
+    videos/fotografía y publicaciones en cualquier otro medio de comunicación. Para limitar el uso o divulgación de sus
+    datos personales puede inscribirse en nuestro listado de exclusión denominado "Exclusión de Promoción y Publicidad”,
+    para más información y/o para ejercer sus Derechos ARCO usted podrá consultar el Aviso de Privacidad Integral
+    Prospectos, Comercios Afiliados, Comisionistas y Operadores en el sitio web <a
+        href="https://www.yastas.com/wps/themes/html/YastasOrg/media/Yastas/index.html" class="link-privacidad"
+        target="_blank" rel="noopener noreferrer">www.yastas.com</a> en la sección Aviso de privacidad y derechos ARCO.
                         </p>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="checkDefault">
@@ -359,7 +395,7 @@
 
                             <div class="d-flex justify-content-center">
                                 <a href="paso1/"
-                                    class="btn btn-disabled bt-politica d-flex justify-content-center align-items-center">
+                                    class="btn btn-disabled btn-continue bt-politica d-flex justify-content-center align-items-center">
                                     Continuar
                                     <span class="material-symbols-outlined"
                                         style="font-size: 24px; margin-left: 6px;">arrow_forward</span>
@@ -382,5 +418,6 @@
 <script type="text/javascript" src="js/lightbox/js/glightbox.min.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/script.js"></script>
+<script src="js/Utms.js"></script>
 
 </html>

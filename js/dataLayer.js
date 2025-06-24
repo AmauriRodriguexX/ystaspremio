@@ -1,6 +1,7 @@
 // Inicialización del dataLayer
 window.dataLayer = window.dataLayer || [];
-
+var timeVideo = 0;
+let closebtn = false;
 // Función para registrar click on Historia
 function trackHistoriaInteraction() {
     dataLayer.push({
@@ -10,175 +11,151 @@ function trackHistoriaInteraction() {
         'CDFunnel': 'PE - Convocatoria - 2025'
     });
 }
-
-// Función para registrar visualización de video
-function trackVideoInteraction(action, urlVideo, label) {
-    dataLayer.push({
-        'event': 'pec_2025_videos',
-        'CDCategory': 'Historia',
-        'CDAction': action,
-        'CDValue': urlVideo,
-        'CDFunnel': 'PE - Convocatoria - 2025'
-    });
-}
-
-// Función para registrar interacciones con formulario
-function trackInteractionPolitica() {
-    dataLayer.push({
-        'event': 'pe_2025_registro',
-        'CDAction': '01. Aviso de privacidad',
-        'CDFunnel': 'PE - Convocatoria - 2025'
-    });
-}
-
-// Función para registrar interacciones con formulario
-function trackFormAction(idCliente, action) {
-    dataLayer.push({
-        'event': 'pe_2025_registro',
-        'CDAction': action,
-        'CDCategory': 'Alimentos',
-        'CDLabel': 'OS',
-        'CDValue': idCliente,
-        'CDFunnel': 'PE - Convocatoria - 2025',
-    });
-}
-
-
-// Función para registrar click en redes sociales
-function trackSocialClick(socialNetwork, action) {
-    dataLayer.push({
-        'event': 'click_element',
-        'CDAction': action,
-        'CDLabel': socialNetwork,
-        'CDFunnel': 'PE - Convocatoria - 2025'
-    });
+function trackClosePauseVideo({ tipo, valor = null }) {
+    const video = document.getElementById('modal-video');
+    if(valor != null)
+    {
+        timeVideo = valor;
+    }
+    else
+    {
+        dataLayer.push({
+            'event': 'pec_2025_videos',
+            'CDCategory': 'Historia',
+            'CDAction': '02. Progreso ' + timeVideo,
+            'CDValue': video.currentSrc,
+            'CDFunnel': 'PE - Convocatoria - 2025'
+        });
+    }
 }
 
 // Función para registrar campos de formulario completados
 function trackFormFieldCompleted(fieldDescription) {
     // Campos sensibles que solo enviarán "completado" como valor
-
     dataLayer.push({
-        'event': 'pe_2025_registro',
+        'event': 'form_field',
         'CDLabel': fieldDescription,
         'CDFunnel': 'PE - Convocatoria - 2025'
     });
 }
-
+// Función para registrar interacciones con formulario
+function trackFormAction(idCliente, action) {
+    dataLayer.push({
+        'event': 'pe_2025_registro',
+        'CDAction': action,
+        'CDCategory': localStorage.getItem('oficina'),
+        'CDLabel': localStorage.getItem('giro'),
+        'CDValue': idCliente,
+        'CDFunnel': 'PE - Convocatoria - 2025',
+    });
+}
 
 // Función para registrar carga de archivos
 function trackFileUpload(fileType, filePath) {
     dataLayer.push({
-        'event': 'pe_2025_registro',
+        'event': 'form_field',
         'CDLabel': fileType,
         'CDFunnel': 'PE - Convocatoria - 2025'
     });
 }
-
-
 // Inicialización de listeners cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function() {
-
+    
     // Tracking de historia
     const historiaText = document.querySelector('.text-play');
     if (historiaText) {
-        historiaText.addEventListener('mouseenter', function() {
+        // Detecta si el clic fue en el botón "Historia"
+        document.querySelector('.button-play')?.addEventListener('click', function () {
+            trackHistoriaInteraction();
+            dataLayer.push({
+                'event': 'pec_2025_videos',
+                'CDCategory': 'Historia',
+                'CDAction': '01. Inicio',
+                'CDValue': 'https://www.multimedia.gentera.com.mx/compartamos/PEC_2025/Yastas/video-historia.mp4',
+                'CDFunnel': 'PE - Convocatoria - 2025'
+            });
+        });
+        historiaText.addEventListener('click', function() {
             trackHistoriaInteraction();
         });
     }
 
-    // Tracking de video
-    const videoButtons = document.querySelectorAll('.button-play');
-    videoButtons.forEach(playButton => {
-        playButton.addEventListener('click', function() {
-            // Obtener los atributos data-* personalizados
-            const action = this.getAttribute('data-action') || 'play';
-            const videoUrl = this.getAttribute('data-url') || '';
-            const label = this.getAttribute('data-label') || '';
+    const video = document.getElementById('modal-video');
+    const cerrarBtn = document.getElementById('btnCloseModal');
 
-            trackVideoInteraction(action, videoUrl, label);
-        });
-    });
+    if(video != null)
+    {
+        // Para llevar registro de qué porcentajes ya se enviaron
+        const progresosEnviados = new Set();
 
-    // Tracking de registro
-    const politicaButton = document.querySelector('.bt-politica');
-    if(politicaButton) {
-        politicaButton.addEventListener('click', function (e) {
-            if (!this.classList.contains('btn-disabled')) {
-                trackInteractionPolitica();
-                setTimeout(function(){
-                    window.location.href="/paso1/"
-                }, 1000)
+        // Evento para capturar el progreso en múltiplos de 5%
+        video.addEventListener('timeupdate', () => {
+            const duracion = video.duration;
+            if (!duracion) return;
+
+            const porcentaje = (video.currentTime / duracion) * 100;
+            const progresoRedondeado = Math.floor(porcentaje / 5) * 5;
+
+            if (
+            progresoRedondeado >= 5 &&
+            progresoRedondeado <= 95 &&
+            !progresosEnviados.has(progresoRedondeado)
+            ) {
+            progresosEnviados.add(progresoRedondeado);
+            trackClosePauseVideo({ tipo: 'progreso', valor: `${progresoRedondeado}%` });
             }
         });
-    }
 
-    // Tracking de Registrarse
-    const continueButtons = document.querySelectorAll('.btn-continue');
-    continueButtons.forEach(regButton => {
-        regButton.addEventListener('click', function() {
-            dataLayer.push({
-                'event': 'pe_2025_registro',
-                'CDAction': '00. Clic Regístrate',
-                'CDFunnel': 'PE - Convocatoria - 2025'
+        // Evento cierre (cuando se presiona el botón cerrar)
+        cerrarBtn.addEventListener('click', () => {
+            closebtn = true;
+            trackClosePauseVideo({ tipo: 'cerrar' });
+        });
+        
+        // Tracking de Registrarse
+        const registerButtons = document.querySelectorAll('.btn-register');
+        registerButtons.forEach(regButton => {
+            regButton.addEventListener('click', function() {
+                dataLayer.push({
+                    'event': 'pe_2025_registro',
+                    'CDAction': '00. Clic Regístrate',
+                    'CDFunnel': 'PE - Convocatoria - 2025'
+                });
             });
         });
-    });
-
-    // Tracking de redes sociales
-    const socialLinks = document.querySelectorAll('.social-bt');
-    socialLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            let socialNetwork = '';
-            let socialAction="Footer - Clic redes sociales"
-            const href = this.getAttribute('href');
-
-            if (href.includes('facebook')) {
-                socialNetwork = 'Footer - Facebook';
-            } else if (href.includes('instagram')) {
-                socialNetwork = 'Footer - Instagram';
-            } else if (href.includes('youtube')) {
-                socialNetwork = 'Footer - YouTube';
-            } else if (href.includes('tiktok')) {
-                socialNetwork = 'Footer - TikTok';
-            }
-
-            trackSocialClick(socialNetwork, socialAction);
+        
+        // Tracking de Registrarse
+        const hereButtons = document.querySelectorAll('.btn-continue:not(.bt-politica)');
+        hereButtons.forEach(regButton => {
+            regButton.addEventListener('click', function() {
+                dataLayer.push({
+                    'event': 'pe_2025_registro',
+                    'CDAction': '00. Clic Regístrate',
+                    'CDFunnel': 'PE - Convocatoria - 2025'
+                });
+            });
         });
-    });
-
-    const descubrLinks = document.querySelectorAll('.links');
-    descubrLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const href = this.getAttribute('href');
-            let descubreLink = '';
-            let descubreAction="Footer - Clic Descubre"
-
-            if (href.includes('credito')) {
-                descubreLink = 'Descubre - Créditos';
-            } else if (href.includes('ahorros')) {
-                descubreLink = 'Descubre - Ahorros';
-            } else if (href.includes('inversiones')) {
-                descubreLink = 'Descubre - Inversiones';
-            } else if (href.includes('seguro')) {
-                descubreLink = 'Descubre - Seguros';
-            }else if (href.includes('privacidad')) {
-                descubreLink = 'Footer - Aviso de privacidad';
-                descubreAction="Footer -Clic Aviso de privacidad"
-            }else if (href.includes('terminos')) {
-                descubreLink = 'DFooter - Términos y condiciones';
-                descubreAction="Footer - Clic Términos y condiciones"
-            }
-
-            trackSocialClick(descubreLink, descubreAction);
+        const continueButtons = document.querySelectorAll('.btn-continue.bt-politica');
+        continueButtons.forEach(regButton => {
+            regButton.addEventListener('click', function() {
+                dataLayer.push({
+                    'event': 'pe_2025_registro',
+                    'CDAction': '01. Aviso de privacidad',
+                    'CDFunnel': 'PE - Convocatoria - 2025'
+                });
+                setTimeout(function(){
+                    window.location.href="/paso1/"
+                }, 500)
+            });
         });
-    });
 
+    }
+    
     // FORM STEP 1 - Tracking de campos del formulario
     if (document.getElementById('step1Form')) {
         // Campos del Step 1
         const step1Fields = [
-            { id: 'idCliente', name: 'IDCliente', desc: '01. ID Cliente ' },
+            { id: 'idCliente', name: 'IDCliente', desc: '01. ID Comercio ' },
             { id: 'nombre', name: 'nombre', desc: '02. Nombre' },
             { id: 'apellido', name: 'apellido', desc: '03. Apellido' },
             { id: 'celular', name: 'celular', desc: '04. Teléfono'  },
@@ -189,39 +166,39 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         // Agregar listeners a cada campo
-        step1Fields.forEach(field => {
-            const element = document.getElementById(field.id);
-            if (element) {
-                // Para inputs y selects, detectar cuando pierden foco
-                element.addEventListener('blur', function() {
-                    if (this.value.trim() !== '') {
+            // Solo registrar una vez por campo
+            const trackedFields = new Set();
+
+            step1Fields.forEach(field => {
+                const element = document.getElementById(field.id);
+                if (!element) return;
+
+                const handler = () => {
+                    if (element.value.trim() !== '' && !trackedFields.has(field.id)) {
                         trackFormFieldCompleted(field.desc);
+                        trackedFields.add(field.id);
                     }
-                });
+                };
 
-                // Para selects, también detectar cambios
+                // Usar sólo un tipo de evento por campo, según el tipo de input
                 if (element.tagName === 'SELECT') {
-                    element.addEventListener('change', function() {
-                        if (this.value !== '') {
-                            trackFormFieldCompleted(field.desc);
-                        }
-                    });
+                    element.addEventListener('change', handler);
+                } else {
+                    element.addEventListener('blur', handler);
                 }
-            }
-        });
-
+            });
         // Tracking cuando se envía el step 1
         document.getElementById('step1Form').addEventListener('submit', function(e) {
             e.preventDefault(); // Prevenir envío normal para tracking
             const element = document.getElementById('idCliente');
-            trackFormAction(element.value || '', '02. Datos de cliente');
+            trackFormAction(element.value || '', '02. Datos del comicionista');
             localStorage.setItem('idcliente', element.value);
             setTimeout(function(){
-                window.location.href="/paso2/"
+                window.location.href="../paso2/"
             }, 500)
         });
     }
-
+    
     // FORM STEP 2 - Tracking de campos del formulario
     if (document.getElementById('step2Form')) {
         // Campos del Step 2
@@ -251,11 +228,11 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('03. Colaborador')
             trackFormAction(localStorage.getItem('idcliente') || '', '03. Colaborador');
             setTimeout(function(){
-                window.location.href="/paso3/"
+                window.location.href="../paso3/"
             }, 500)
         });
     }
-
+    
     // FORM STEP 3 - Tracking de archivos y checkbox
     if (document.getElementById('uploadForm')) {
         // Tracking de carga de video
@@ -298,21 +275,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
             trackFormAction(localStorage.getItem('idcliente') || '', '04. Multimedia');
             setTimeout(function(){
-                window.location.href="/gracias/"
-            }, 500)
+                //window.location.href="../gracias/"
 
+            }, 500)
+            grecaptcha.execute();
         });
     }
-
+    
     if (document.getElementById('endRegister')) {
         dataLayer.push({
             'event': 'registro_emprendedores',
             'CDAction': '05. Registro Completado',
-            'CDCategory': 'Alimentos',
-            'CDLabel': 'OS',
+            'CDCategory': localStorage.getItem('oficina'),
+            'CDLabel': localStorage.getItem('giro'),
             'CDValue': localStorage.getItem('idcliente'),
             'CDFunnel': 'PE - Convocatoria - 2025',
-            'lead_id': '276870'
+            'lead_id': document.getElementsByClassName("confirmation-number")[0].textContent.trim()
         });
 
         const blogButton = document.getElementById('btnBlog');
@@ -340,109 +318,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    setupModalVideoTracking()
-});
+    // Tracking de redes sociales
+    const socialLinks = document.querySelectorAll('.social-bt');
+    if(socialLinks != null)
+    {
+        socialLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                let socialNetwork = '';
+                let socialAction="Footer - Clic redes sociales"
+                const href = this.getAttribute('href');
 
-
-
-
-
-
-// Función para enviar el evento al dataLayer
-function sendVideoProgressEvent(action, videoUrl) {
-    dataLayer.push({
-        'event': 'pec_2025_videos',
-        'CDCategory': 'Historia',
-        'CDAction': action,
-        'CDValue': videoUrl,
-        'CDFunnel': 'PE - Convocatoria - 2025'
-    });
-
-    console.log(`Video progress tracked: ${action}`);
-}
-
-// Configurar el seguimiento para todos los videos en modaless
-function setupModalVideoTracking() {
-    // Buscar todos los modales que contienen videos
-    const videoModals = document.querySelectorAll('.modal:has(video)');
-
-    videoModals.forEach(modal => {
-        // Cuando se abre el modal, configurar el tracking para su video
-        modal.addEventListener('shown.bs.modal', function() {
-            const modalVideo = this.querySelector('video');
-
-            if (modalVideo) {
-                // Reiniciar el tracking para este video específico
-                const reportedProgress = {
-                    '25': false,
-                    '50': false,
-                    '75': false,
-                    '99': false,
-                };
-
-                // Obtener la URL del video
-                let videoUrl = '';
-
-                if (modalVideo.src) {
-                    videoUrl = modalVideo.src;
-                } else if (modalVideo.querySelector('source')) {
-                    videoUrl = modalVideo.querySelector('source').src;
+                if (href.includes('facebook')) {
+                    socialNetwork = 'Footer - Facebook';
+                } else if (href.includes('instagram')) {
+                    socialNetwork = 'Footer - Instagram';
+                } else if (href.includes('youtube')) {
+                    socialNetwork = 'Footer - YouTube';
+                } else if (href.includes('tiktok')) {
+                    socialNetwork = 'Footer - TikTok';
                 }
 
-                // Normalizar la URL para el dataLayer
-                videoUrl = videoUrl.split('?')[0];
-
-                // Listener para el evento timeupdate
-                const timeUpdateHandler = function() {
-                    const percentComplete = Math.floor((modalVideo.currentTime / modalVideo.duration) * 100);
-
-                    if (percentComplete >= 25 && !reportedProgress['25']) {
-                        sendVideoProgressEvent('02. Progreso 25%', videoUrl);
-                        reportedProgress['25'] = true;
-                    }
-
-                    if (percentComplete >= 50 && !reportedProgress['50']) {
-                        sendVideoProgressEvent('02. Progreso 50%', videoUrl);
-                        reportedProgress['50'] = true;
-                    }
-
-                    if (percentComplete >= 75 && !reportedProgress['75']) {
-                        sendVideoProgressEvent('02. Progreso 75%', videoUrl);
-                        reportedProgress['75'] = true;
-                    }
-                    if (percentComplete >= 100 && !reportedProgress['9']) {
-                        sendVideoProgressEvent('03. Completado', videoUrl);
-                        reportedProgress['100'] = true;
-                    }
-                };
-
-                // Añadir el listener al video
-                modalVideo.addEventListener('timeupdate', timeUpdateHandler);
-
-                // Reiniciar el seguimiento si el video se reinicia
-                modalVideo.addEventListener('seeking', function() {
-                    if (modalVideo.currentTime < modalVideo.duration * 0.25) {
-                        reportedProgress['25'] = false;
-                    }
-                    if (modalVideo.currentTime < modalVideo.duration * 0.5) {
-                        reportedProgress['50'] = false;
-                    }
-                    if (modalVideo.currentTime < modalVideo.duration * 0.75) {
-                        reportedProgress['75'] = false;
-                    }
-                    if (modalVideo.currentTime < modalVideo.duration * 0.99) {
-                        reportedProgress['100'] = false;
-                    }
-                });
-
-                // Cuando se cierra el modal, limpiar listeners para evitar duplicados
-                modal.addEventListener('hidden.bs.modal', function() {
-                    modalVideo.removeEventListener('timeupdate', timeUpdateHandler);
-                });
-            }
+                trackSocialClick(socialNetwork, socialAction);
+            });
         });
-    });
-}
+    }
 
-
-
+});

@@ -89,10 +89,10 @@ function validarCampo(campo) {
     switch (campo) {
         case 'idCliente':
             // Validar ID (exactamente 12 dígitos)
-            const regexId = /^\d{3,12}$/;
+            const regexId = /^\d{2,5}$/;
             esValido = regexId.test(elemento.value.trim());
             if (!esValido) {
-                mostrarError(elemento, 'El ID debe ser entre 3 y 12 dígitos numéricos');
+                mostrarError(elemento, 'El ID debe ser entre 2 y 5 dígitos numéricos');
             } else {
                 limpiarError(elemento);
             }
@@ -106,6 +106,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Ingrese su nombre con al menos 4 letras (solo letras)');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('nombre', elemento.value);
             }
             break;
 
@@ -117,6 +118,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Ingrese sus apellidos con al menos 4 letras (solo letras)');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('apellidos', elemento.value);
             }
             break;
 
@@ -128,6 +130,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'El teléfono debe contener exactamente 10 dígitos');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('numTel', elemento.value);
             }
             break;
 
@@ -138,6 +141,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Por favor seleccione una oficina de servicio');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('oficina', elemento.options[elemento.selectedIndex].text);
             }
             break;
 
@@ -148,6 +152,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Por favor seleccione un estado');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('estado', elemento.options[elemento.selectedIndex].text);
             }
             break;
 
@@ -155,6 +160,11 @@ function validarCampo(campo) {
             // Campo opcional, siempre válido
             esValido = true;
             limpiarError(elemento);
+            if( elemento.value != '' && elemento.value.length > 0){
+                localStorage.setItem('municipio', elemento.value);
+            }else{
+                localStorage.setItem('municipio', 'NA');
+            }
             break;
 
         case 'giro':
@@ -164,6 +174,7 @@ function validarCampo(campo) {
                 mostrarError(elemento, 'Por favor ingrese el giro de su negocio');
             } else {
                 limpiarError(elemento);
+                localStorage.setItem('giro', elemento.value);
             }
             break;
     }
